@@ -1,0 +1,10 @@
+Third-party notices
+
+This site bundles and/or uses the following third-party software and assets:
+
+- React, React DOM, React Router, Radix Primitives, Embla Carousel, and Vite: MIT License.
+- Funnel Display and Noto Serif SC: SIL Open Font License 1.1. The applicable license text is included with the upstream packages.
+- WebGL Water components under pool/upstream/: MIT attribution retained in pool/upstream/LICENSE.txt; credit is also shown in the site UI.
+- Noto Sans SC used by the Yingxu demo: SIL Open Font License 1.1; license text is retained at demos/yingxu/assets/Noto-OFL.txt.
+
+The portfolio's case imagery and redacted UI illustrations are original portfolio materials or reviewed redacted renderings. Demo content states when it is fictional.

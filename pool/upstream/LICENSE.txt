@@ -1,0 +1,32 @@
+WebGL Water — upstream source used by the local pool study
+https://github.com/evanw/webgl-water
+https://madebyevan.com/webgl-water/
+
+Copyright 2011 Evan Wallace
+Released under the MIT license (as stated in every source file header).
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+Local changes (2026-11) are listed at the top of renderer.js: water tint,
+host-supplied tile texture, host-supplied caustic texture size, and a reduced
+caustic highlight strength. The original tile photo and sky cubemap JPGs from
+the upstream demo are NOT used; the pool study generates its own tile and sky
+textures at runtime, so no third-party image rights are involved.

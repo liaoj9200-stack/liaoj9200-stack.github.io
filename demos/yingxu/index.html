@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f6f3"><title>映序 · 视频创作工作台</title><link rel="stylesheet" href="app.css"><meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'none';"></head>
+<body>
+<div class="prototype-bar"><span><i></i> 交互原型</span> 隔离副本 · 虚构文案/无人像素材 · 真实浏览器交互 · 未接分析与渲染 <button id="solutionTop">查看实施方案 ↗</button></div>
+<div class="app-shell">
+ <aside class="sidebar">
+  <a class="brand" href="#studio" aria-label="映序工作台"><span class="brand-mark"><i></i><i></i><i></i></span><strong>映序<small>FRAME & STORY</small></strong></a>
+  <button class="new-project" id="newProject"><span>＋</span> 新建创作</button>
+  <div class="nav-caption">创作空间</div>
+  <nav aria-label="主导航">
+   <button class="nav-item active" data-page="studio"><span data-icon="layout"></span> 创作工作台 <i></i></button>
+   <button class="nav-item" data-page="library"><span data-icon="spark"></span> 动效与模板 <em>12</em></button>
+   <button class="nav-item" data-page="assets"><span data-icon="folder"></span> 素材与来源</button>
+   <button class="nav-item" data-page="solution"><span data-icon="route"></span> 两条制作流程</button>
+  </nav>
+  <div class="sidebar-note"><span class="small-star">✳</span><strong>从表达出发，选择动效。</strong><p>让每个镜头服务于内容，让每段内容找到合适的画面。</p><button id="quickLibrary">探索视频动效 <span>↗</span></button></div>
+  <div class="workspace-account"><span class="avatar">示</span><div>示例创作空间<small>本地草稿 · 自动保存</small></div><span class="local-dot"></span></div>
+ </aside>
+ <main>
+  <header class="topbar"><div class="breadcrumbs">创作空间 <span>/</span> <strong id="breadcrumb">视频工作台</strong></div><div class="top-actions"><span id="saveState"><i></i> 草稿已保存</span><button class="icon-button" id="helpButton" aria-label="使用说明" data-icon="help"></button></div></header>
+  <div id="studioPage" class="page">
+   <div class="page-heading"><div><div class="eyebrow">CREATE WITH INTENTION</div><h1>好内容，值得好镜头<span>。</span></h1><p>从一支参考，或一段口播开始。</p></div><button class="button ghost" id="loadExample"><span data-icon="play"></span> 加载示例项目</button></div>
+   <div class="mode-switch" role="group" aria-label="制作方向">
+    <button class="mode-card" data-mode="reference"><span class="mode-icon" data-icon="layers"></span><span><strong>爆款参考重制</strong><small>拆解表达逻辑，迁移镜头表现</small></span><span class="mode-number">01</span></button>
+    <button class="mode-card selected" data-mode="talk"><span class="mode-icon" data-icon="mic"></span><span><strong>数字人口播混剪</strong><small>让语音驱动字幕、素材与动效</small></span><span class="mode-number">02</span></button>
+   </div>
+   <section class="project-bar"><div><span class="project-dot"></span><h2 id="projectTitle">AI 时代，企业为什么没增长？</h2><span class="badge neutral" id="sampleBadge">示例项目</span></div><div><button class="text-button" id="importButton"><span data-icon="upload"></span><span id="importLabel">更换口播</span></button><button class="button dark" id="exportButton">导出创作方案 <span>↗</span></button></div></section>
+   <div class="process-strip"><span><b>01</b> <span id="stepOne">原片与文稿</span></span><i></i><span class="current"><b>02</b> <span id="stepTwo">语义分镜</span></span><i></i><span><b>03</b> 模板与混剪</span><i></i><span><b>04</b> 成片检查</span><button id="renderButton">视频渲染 <span data-icon="arrow"></span></button></div>
+   <section class="reference-setup" id="referenceSetup" hidden>
+    <div><label for="targetTopic">新内容主题</label><input id="targetTopic" class="field" placeholder="例如：AI 时代的组织效率"><small>独立于参考原片的主题，写入创作方案</small></div>
+    <div><label for="transferStrategy">迁移方式</label><select id="transferStrategy" class="field"><option value="structure">沿用论证结构，重新设计画面</option><option value="visual">重点借鉴镜头与动效节奏</option><option value="balanced">结构与表现力均衡迁移</option></select><small>对标表达关系，保留内容与素材来源</small></div>
+    <div class="reference-input"><span>参考 → 新内容</span><strong>提问 / 反转 / 解释 / 举例</strong><button class="text-button" id="targetScriptButton">编辑新内容文稿 ↗</button><small id="referenceState">当前显示人工整理的示例结构</small></div>
+   </section>
+   <div class="editor-grid">
+    <section class="panel storyboard"><div class="panel-heading"><h3 id="storyHeading">内容分镜 <span>06</span></h3><button class="icon-button" id="scriptButton" aria-label="编辑文稿" data-icon="edit"></button></div><div class="subtle-note" id="storyNote">根据已有口播整理的示例分镜</div><div id="sceneList" class="scene-list"></div><button class="add-scene" id="addScene">＋ 添加镜头</button></section>
+    <section class="panel preview-panel"><div class="panel-heading"><div class="preview-tabs"><button class="selected" data-preview="result">编排预览</button><button data-preview="original">原始画面</button></div><span class="badge neutral">9:16</span></div>
+     <div class="preview-canvas"><span class="canvas-label">1080 × 1920</span><div class="video-stage" id="videoStage"><video id="video" src="assets/sample.mp4" poster="assets/presenter.jpg" preload="metadata" playsinline></video><div class="stage-shade"></div><div class="safe-guide" id="safeGuide"></div><div class="title-composition" id="titleComposition"><div class="visual-kicker" id="visualKicker">效率的误区</div><div class="visual-title" id="visualTitle">观察日常</div><div class="visual-banner"><span id="visualEmphasis">发现新的风景</span></div><div class="visual-decoration" id="visualDecoration"></div></div><div class="video-caption" id="videoCaption">员工都使用上 AI 了</div><span class="sample-watermark">浏览器编排预览</span></div><button class="safe-button" id="safeButton" aria-pressed="false"><span data-icon="frame"></span> 安全区</button></div>
+     <div class="playback"><button id="playButton" class="play-button" aria-label="播放"><span data-icon="play"></span></button><span class="timecode"><b id="currentTime">00:11.40</b> / <span id="totalTime">00:30.00</span></span><input id="scrubber" aria-label="视频播放位置" type="range" min="0" max="30" step="0.033" value="11.4"><button class="icon-button" id="muteButton" aria-label="静音" data-icon="volume"></button><button class="icon-button" id="restartButton" aria-label="重播当前镜头" data-icon="replay"></button></div>
+     <div class="preview-foot"><span class="live-dot"></span><span id="previewHint">动画随播放位置变化，可拖动逐帧查看</span></div>
+    </section>
+    <section class="panel inspector"><div class="panel-heading"><h3>镜头设计</h3><span class="badge accent" id="sceneType">反转</span></div><div class="inspector-scroll"><label class="field-label" for="headlineInput">铺垫文案</label><input class="field" id="headlineInput" value="观察日常" maxlength="40"><label class="field-label" for="emphasisInput">核心表达 <span>视觉重点</span></label><textarea class="field" id="emphasisInput" rows="2" maxlength="60">发现新的风景</textarea><p class="field-hint" id="textWarning">建议重点文案控制在 12 字以内</p><div class="field-row"><label>出场 <input class="field" id="startInput" type="number" min="0" step="0.1" value="10.1"></label><label>退场 <input class="field" id="endInput" type="number" min="0" step="0.1" value="15.1"></label></div><p class="inline-error" id="timeError" role="alert" hidden></p>
+     <div class="field-label section-label">场景模板 <button class="text-button" id="changeTemplate">更换 ↗</button></div><button class="selected-template" id="selectedTemplate"><div class="template-mini blue"><small>观察日常</small><b>发现新的风景</b></div><div><strong id="templateName">蓝锋 · 观点横幅</strong><small id="templateDescription">遮罩展开 / 重点弹入</small></div><span>⌄</span></button>
+     <label class="field-label" for="fontSelect">字幕字体</label><select class="field" id="fontSelect"><option value="noto">Noto Sans SC · 粗体</option><option value="system">系统无衬线 · 常规</option></select>
+     <div class="field-label">强调色</div><div class="swatches" aria-label="选择强调色"><button style="--swatch:#087cca" data-color="#087cca" class="chosen" aria-label="海蓝"></button><button style="--swatch:#087f70" data-color="#087f70" aria-label="松绿"></button><button style="--swatch:#e46d40" data-color="#e46d40" aria-label="珊瑚"></button><button style="--swatch:#7555c5" data-color="#7555c5" aria-label="紫罗兰"></button><button style="--swatch:#c7983c" data-color="#c7983c" aria-label="暖金"></button></div>
+     <label class="range-label" for="intensity">动效幅度 <span id="intensityValue">适中</span></label><input id="intensity" type="range" min="0" max="100" value="55">
+     <div class="inspector-tip"><span data-icon="spark"></span><p id="sceneIntent">用“用了 AI”与“没有增长”的反差，建立继续观看的理由。</p></div>
+    </div></section>
+   </div>
+   <section class="panel timeline-panel"><div class="timeline-top"><h3>编排轨道 <span>让画面跟着表达走</span></h3><div><span class="legend speech"></span> 原声 <span class="legend visual"></span> 场景 <span class="legend captions"></span> 字幕</div></div><div class="timeline-scroll"><div class="timeline-ruler"><span></span><div id="ruler"></div></div><div class="timeline-row"><label><span data-icon="volume"></span>口播原声</label><div class="track waveform" id="waveform"></div></div><div class="timeline-row"><label><span data-icon="layers"></span>画面编排</label><div class="track scene-track" id="sceneTrack"></div></div><div class="timeline-row"><label><span data-icon="type"></span>语义字幕</label><div class="track caption-track" id="captionTrack"></div></div></div><div class="timeline-caption"><span id="trackStatus">当前轨道为示例数据，上传新视频后需重新分析</span><button id="restoreButton">恢复本镜头设计</button></div></section>
+  </div>
+  <div id="libraryPage" class="page" hidden></div><div id="assetsPage" class="page" hidden></div><div id="solutionPage" class="page" hidden></div>
+  <footer class="page-footer"><span>映序 / 让表达被看见</span><span>原型 v0.1 · 浏览器本地保存</span></footer>
+ </main>
+</div>
+<dialog id="templateDialog" class="wide-dialog"><div class="dialog-head"><div><div class="eyebrow">MOTION FOR YOUR STORY</div><h2>为这句话，选择一种表现</h2><p>在真实画面上应用，也可以先重播动效。</p></div><button class="icon-button close-dialog" aria-label="关闭" data-icon="close"></button></div><div class="library-tools"><label class="search-box"><span data-icon="search"></span><input id="templateSearch" placeholder="搜索横幅、数字、卡片…" aria-label="搜索模板"></label><div id="templateFilters" class="filter-tabs"></div></div><div id="dialogTemplateGrid" class="template-grid"></div><div class="dialog-footer"><span>11 个原创 + 1 个来源改造 · Hypit 适配待验证</span><button class="button ghost close-dialog">返回镜头</button></div></dialog>
+<dialog id="importDialog"><div class="dialog-head"><div><div class="eyebrow">START WITH YOUR MATERIAL</div><h2 id="importTitle">导入口播视频</h2></div><button class="icon-button close-dialog" aria-label="关闭" data-icon="close"></button></div><label class="drop-zone" id="dropZone"><span data-icon="upload"></span><strong>拖入视频，或点击选择</strong><small>MP4 / MOV / WEBM · 仅在当前浏览器读取</small><input id="fileInput" type="file" accept="video/mp4,video/quicktime,video/webm" hidden></label><p id="importError" class="inline-error" role="alert" hidden></p><div class="import-boundary">导入后可以真实播放并手动编排。自动转写、参考拆解和素材检索需要连接制作服务；不会用示例分析冒充上传视频的结果。</div><div class="dialog-footer"><button class="button ghost close-dialog">取消</button><button class="button dark" id="useSample">使用现有示例</button></div></dialog>
+<dialog id="scriptDialog"><div class="dialog-head"><div><div class="eyebrow">THE WORDS COME FIRST</div><h2>口播文稿</h2><p>修改文稿会保存草稿，不会自动重新对齐音频。</p></div><button class="icon-button close-dialog" aria-label="关闭" data-icon="close"></button></div><textarea id="scriptText" class="field script-text" aria-label="口播文稿"></textarea><div class="dialog-footer"><span>已有分镜时间保持不变</span><button id="saveScript" class="button dark">保存文稿</button></div></dialog>
+<dialog id="infoDialog"><div class="dialog-head"><h2 id="infoTitle"></h2><button class="icon-button close-dialog" aria-label="关闭" data-icon="close"></button></div><div id="infoBody" class="info-body"></div><div class="dialog-footer"><button class="button dark close-dialog">知道了</button></div></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite"></div><script src="app.js"></script>
+<div style="position:fixed;bottom:0;left:0;right:0;z-index:99999;background:#173d33;color:white;padding:10px;text-align:center;font:14px sans-serif">安全演示｜真实原型的隔离副本 · 文案及素材为示意 · 未接后端分析/渲染 · 非生成成片</div></body></html>

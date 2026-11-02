@@ -1,0 +1,8 @@
+/* 常规字重延后加载，避免与标题字号抢首屏带宽 */
+@font-face {
+  font-family: 'Noto Serif SC';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/noto-serif-sc-400.woff2') format('woff2');
+}
