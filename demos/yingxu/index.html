@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f5f6f3"><title>映序 · 视频创作工作台</title><link rel="stylesheet" href="app.css"><meta http-equiv="Content-Security-Policy" content="default-src 'self' data: blob:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'none';"></head>
 <body>
-<div class="prototype-bar"><span><i></i> 交互原型</span> 隔离副本 · 虚构文案/无人像素材 · 真实浏览器交互 · 未接分析与渲染 <button id="solutionTop">查看实施方案 ↗</button></div>
+<div class="prototype-bar"><span><i></i> 交互原型</span> 使用示例内容 · 可体验编辑流程 · 视频生成暂未开放 <button id="solutionTop">查看使用流程 ↗</button></div>
 <div class="app-shell">
  <aside class="sidebar">
   <a class="brand" href="#studio" aria-label="映序工作台"><span class="brand-mark"><i></i><i></i><i></i></span><strong>映序<small>FRAME & STORY</small></strong></a>
@@ -26,7 +26,7 @@
     <button class="mode-card selected" data-mode="talk"><span class="mode-icon" data-icon="mic"></span><span><strong>数字人口播混剪</strong><small>让语音驱动字幕、素材与动效</small></span><span class="mode-number">02</span></button>
    </div>
    <section class="project-bar"><div><span class="project-dot"></span><h2 id="projectTitle">AI 时代，企业为什么没增长？</h2><span class="badge neutral" id="sampleBadge">示例项目</span></div><div><button class="text-button" id="importButton"><span data-icon="upload"></span><span id="importLabel">更换口播</span></button><button class="button dark" id="exportButton">导出创作方案 <span>↗</span></button></div></section>
-   <div class="process-strip"><span><b>01</b> <span id="stepOne">原片与文稿</span></span><i></i><span class="current"><b>02</b> <span id="stepTwo">语义分镜</span></span><i></i><span><b>03</b> 模板与混剪</span><i></i><span><b>04</b> 成片检查</span><button id="renderButton">视频渲染 <span data-icon="arrow"></span></button></div>
+   <div class="process-strip"><span><b>01</b> <span id="stepOne">原片与文稿</span></span><i></i><span class="current"><b>02</b> <span id="stepTwo">语义分镜</span></span><i></i><span><b>03</b> 模板与混剪</span><i></i><span><b>04</b> 成片检查</span><button id="renderButton">生成视频 <span data-icon="arrow"></span></button></div>
    <section class="reference-setup" id="referenceSetup" hidden>
     <div><label for="targetTopic">新内容主题</label><input id="targetTopic" class="field" placeholder="例如：AI 时代的组织效率"><small>独立于参考原片的主题，写入创作方案</small></div>
     <div><label for="transferStrategy">迁移方式</label><select id="transferStrategy" class="field"><option value="structure">沿用论证结构，重新设计画面</option><option value="visual">重点借鉴镜头与动效节奏</option><option value="balanced">结构与表现力均衡迁移</option></select><small>对标表达关系，保留内容与素材来源</small></div>
